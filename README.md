@@ -1,2 +1,2 @@
 # Projekts
-Projekta darbs : Lietojumprogrammatūru automatizēšaNAS RĪKOS
+Projekta darbs : Lietojumprogrammatūru automatizēšanas rīkos
