@@ -1,5 +1,6 @@
 # Projekts
 Projekta darbs: Lietojumprogrammatūru automatizēšanas rīkos
+
 Projekta nosaukums: Pipelife produktu/pasūtījuma lapas izveide
 
 Šīs programmas uzdevums ir nolasīt excel lapu, kurā ir preces un to attiecīgie kodi, un izmantojot programmu ievadot attiecīgos produktu kodus un skaitu, izveidot pasūtījumu sarakstu. Šī nu gan nav ikdienas problēma ar ko saskaras ikviens, bet šo es jau labu laiku esmu vēlējies izveidot, jo esmu padzirdējis vecākus runājam par šādu programmu, kurā var viegli izveidot pasūtījumu sarakstu(Vecāki strādā Pipelife Latvia SIA, kas piedāvā plašāko plastmasas cauruļvadu sortimentu Latvijā.).
