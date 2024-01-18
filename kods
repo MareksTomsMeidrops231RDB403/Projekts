@@ -1,1 +1,41 @@
+import openpyxl
+import csv
 
+def read_excel_and_create_list(excel_file_path):
+    wb = openpyxl.load_workbook(excel_file_path)
+    sheet = wb.active
+    preces_kodi = [cell.value for cell in sheet['A']]
+
+    jaunais_saraksts = []
+
+    while True:
+        ievade = input("Ievadi produkta kodu (vai ievadiet 'iziet', lai beigtu darbu): ")
+
+        if ievade.lower() == 'iziet':
+            break
+
+        ##šajā vietā tika pielietots chatgpt, lai izksaidrotu problēmu un censtos izveidot pārbaudi un ievadi
+        try:
+            code_index = preces_kodi.index(ievade.upper())
+            prece = sheet.cell(row=code_index + 1, column=2).value
+            print(f"Vai šī ir prece kuru meklējāt? {prece}")
+            pareizi = input("Ievadiet 'yes' vai 'no': ").lower()
+
+            if pareizi == 'yes':
+                skaits = int(input("Ievadziet vēlamo daudzumu: "))
+                jaunais_saraksts.append({'Prece': prece, 'Skaits': skaits})
+                print(f"{skaits} {prece} tika pievienots sarakstam.")
+
+        except ValueError:
+            print("Preces kods netika atrasts, lūdzu ievadiet pareizu kodu.")
+
+    with open('jaunais_saraksts.csv', 'w', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(['Prece', 'Skaits'])  # Write header
+        for item in jaunais_saraksts:
+            csv_writer.writerow([item['Prece'], item['Skaits']])
+
+    print("Jūsu jaunais preču saraksts ir ticis saglabāts 'jaunais_saraksts.csv'.")
+
+excel_file_path = 'produkti.xlsx'
+read_excel_and_create_list(excel_file_path)
